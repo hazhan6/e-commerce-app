@@ -10,11 +10,11 @@ This is an E-Commerce application that allows users to browse and purchase produ
 
 - Product Details: Users can view detailed information about each product, including images, descriptions, and prices.
 
-- Product Management: ( Simulation )
+- Product Management:
 
-  Add Product: Users can add new products to the store, including title, description, category and price.
-  Update Product: Users can edit existing products' information, such as title, description, category and price.
-  Remove Product: Users can delete products from the store.
+  - Add Product: Users can add new products to the store, including title, description, category and price.
+  - Update Product: Users can edit existing products' information, such as title, description, category and price.
+  - Remove Product: Users can delete products from the store.
 
 - Shopping Cart: Users can add and remove products to/from their shopping cart. The cart allows users to update the quantity of items and clear the cart entirely.
 
