@@ -78,7 +78,8 @@
     "description": "Description",
     "price": "Price",
     "image": "Image",
-    "update": "Product Edit"
+    "update": "Product Edit",
+    "add": "Add Product"
   },
 
   "Profile": {
@@ -102,6 +103,8 @@
     "deleteProductFail": "An error occurred while deleting the product.",
     "updatedProductSuccess": "Product successfully updated.",
     "updatedProductFail": "An error occurred while updating the product.",
+    "addedProductSuccess": "Product successfully added.",
+    "addedProductFail": "An error occurred while adding the product.",
     "clearCartSuccess": "Cart successfully cleared.",
     "clearCartFail": "An error occurred while clearing the cart.",
     "orderTakenSuccess": "Order successfully taken.",
@@ -114,7 +117,7 @@
     "sureForLogout": "Are you sure you want to logout?",
     "sureForDelete": "Are you sure you want to delete?",
     "sureForClear": "Are you sure you want to clear the cart?",
-    "sure": "Yes, I'm sure.",
+    "sure": "Yes, I'm sure",
     "continue": "Continue",
     "cancel": "Cancel",
     "delete": "Delete",
@@ -125,6 +128,7 @@
     "haveAccount": "Already have a account? Login",
 
     "unmatchPassword": "Passwords don't match!",
+    "canNotBeBlank": "* Can Not Be Blank!",
 
     "cartNameRequired": "Cardholder Name cannot be empty.",
     "CVCRequired": "Invalid CVC.",

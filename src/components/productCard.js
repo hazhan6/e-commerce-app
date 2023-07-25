@@ -6,7 +6,7 @@ import { useSnackbar } from "notistack";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import EditAndDeleteProduct from "./editAndDeleteProduct";
-import EditModal from "./editModal";
+import AddOrEditModal from "./addOrEditModal";
 
 const ProductCard = ({ product }) => {
   const { t } = useTranslation();
@@ -148,7 +148,7 @@ const ProductCard = ({ product }) => {
       {renderAddToCart()}
       {renderActions()}
       {isEditModalOpen && (
-        <EditModal product={product} setEditModalOpen={setEditModalOpen} />
+        <AddOrEditModal product={product} setModalOpen={setEditModalOpen} />
       )}
     </div>
   );

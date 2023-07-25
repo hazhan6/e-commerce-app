@@ -78,7 +78,8 @@
     "description": "Açıklama",
     "price": "Fiyat",
     "image": "Fotoğraf",
-    "update": "Ürün Güncelleme"
+    "update": "Ürün Güncelleme",
+    "add": "Ürün Ekle"
   },
 
   "Profile": {
@@ -102,6 +103,8 @@
     "deleteProductFail": "Ürün silinirken bir hata oluştu.",
     "updatedProductSuccess": "Ürün başarıyla güncellendi.",
     "updatedProductFail": "Ürün güncellenirken bir hata oluştu.",
+    "addedProductSuccess": "Ürün başarıyla eklendi.",
+    "addedProductFail": "Ürün eklenirken bir hata oluştu.",
     "clearCartSuccess": "Sepet başarıyla temizlendi.",
     "clearCartFail": "Sepet temizlenirken bir hata oluştu.",
     "orderTakenSuccess": "Sipariş başarıyla alındı",
@@ -125,6 +128,7 @@
     "haveAccount": "Hesabınız var mı? Giriş Yapın",
 
     "unmatchPassword": "Şifreler aynı değil!",
+    "canNotBeBlank": "* Boş Bırakılamaz!",
 
     "cartNameRequired": "Kart Sahibi boş bırakılamaz",
     "CVCRequired": "Geçersiz CVC",

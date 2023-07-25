@@ -24,6 +24,10 @@ const handleUpdate = ({ state, action, stateKey }) => {
   ));
 };
 
+const handleAdd = ({ state, action, stateKey }) => {
+  return (state[stateKey] = [action.payload, ...state[stateKey]]);
+};
+
 const fetchData = async (url) => {
   try {
     const response = await axios.get(url, {
@@ -104,16 +108,42 @@ export const deleteProduct = createAsyncThunk(
 
 export const updateProduct = createAsyncThunk(
   "updateProduct",
-  async ({ editedData }) => {
+  async ({ inputData }) => {
     try {
       const response = await axios.put(
-        `https://fakestoreapi.com/products/${editedData.id}`,
+        `https://fakestoreapi.com/products/${inputData.id}`,
         {
-          title: editedData.title,
-          price: editedData.price,
-          description: editedData.description,
+          title: inputData.title,
+          price: inputData.price,
+          description: inputData.description,
           image: "https://i.pravatar.cc",
-          category: editedData.category,
+          category: inputData.category,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+);
+
+export const addProduct = createAsyncThunk(
+  "addProduct",
+  async ({ inputData }) => {
+    try {
+      const response = await axios.post(
+        `https://fakestoreapi.com/products`,
+        {
+          title: inputData.title,
+          price: inputData.price,
+          description: inputData.description,
+          image: "https://i.pravatar.cc",
+          category: inputData.category,
         },
         {
           headers: {
@@ -153,6 +183,10 @@ const products = createSlice({
       .addCase(updateProduct.fulfilled, (state, action) => {
         handleDelete({ state, action, stateKey: "limitedProducts" });
         handleDelete({ state, action, stateKey: "products" });
+      })
+      .addCase(addProduct.fulfilled, (state, action) => {
+        handleAdd({ state, action, stateKey: "limitedProducts" });
+        handleAdd({ state, action, stateKey: "products" });
       });
   },
 });

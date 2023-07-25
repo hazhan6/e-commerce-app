@@ -1,46 +1,78 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories, updateProduct } from "../redux/products";
+import { addProduct, getCategories, updateProduct } from "../redux/products";
 import { useSnackbar } from "notistack";
 
-const EditModal = ({ product, setEditModalOpen }) => {
+const AddOrEditModal = ({ product, setModalOpen }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
 
   const categories = useSelector((state) => state.products.categories);
-  const [editedData, setEditedData] = useState({ ...product });
+  const [inputData, setInputData] = useState(
+    product
+      ? { ...product }
+      : {
+          title: "",
+          price: "",
+          description: "",
+          category: "",
+        }
+  );
+  const [warning, setWarning] = useState(false);
 
   useEffect(() => {
     dispatch(getCategories());
   }, []);
 
   const handleModalClose = () => {
-    setEditModalOpen(false);
+    setModalOpen(false);
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditedData({
-      ...editedData,
+    setInputData({
+      ...inputData,
       [name]: value,
     });
   };
 
   const handleSaveChanges = () => {
+    if (
+      !inputData?.category ||
+      !inputData?.price ||
+      !inputData?.description ||
+      !inputData?.title
+    ) {
+      return setWarning(true);
+    }
     try {
-      dispatch(updateProduct({ editedData }));
-      enqueueSnackbar(`${t("Warnings.updatedProductSuccess")}`, {
-        variant: "success",
-        preventDuplicate: true,
-      });
+      dispatch(
+        product ? updateProduct({ inputData }) : addProduct({ inputData })
+      );
+      enqueueSnackbar(
+        `${t(
+          product
+            ? "Warnings.updatedProductSuccess"
+            : "Warnings.addedProductSuccess"
+        )}`,
+        {
+          variant: "success",
+          preventDuplicate: true,
+        }
+      );
       handleModalClose();
     } catch (error) {
-      enqueueSnackbar(`${t("Warnings.updatedProductFail")}`, {
-        variant: "error",
-        preventDuplicate: true,
-      });
+      enqueueSnackbar(
+        `${t(
+          product ? "Warnings.updatedProductFail" : "Warnings.addedProductFail"
+        )}`,
+        {
+          variant: "error",
+          preventDuplicate: true,
+        }
+      );
     }
   };
 
@@ -51,7 +83,7 @@ const EditModal = ({ product, setEditModalOpen }) => {
         type={type}
         name={name}
         required
-        value={editedData[name]}
+        value={inputData[name]}
         onChange={handleInputChange}
         className="w-full border p-2 rounded text-gray-800 outline-gray-500 bg-gray-200"
       />
@@ -62,10 +94,12 @@ const EditModal = ({ product, setEditModalOpen }) => {
     return (
       <div className="flex flex-col md:border rounded-lg">
         <select
-          value={editedData.categories}
+          name="category"
+          value={inputData?.category}
           onChange={handleInputChange}
           className="p-2 outline-gray-500 dark:bg-gray-300 border rounded dark:text-gray-700"
         >
+          <option value={""}></option>
           {categories &&
             categories.map((category) => (
               <option key={category} value={category}>
@@ -81,31 +115,36 @@ const EditModal = ({ product, setEditModalOpen }) => {
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="bg-white dark:bg-gray-600 rounded-lg p-6 z-10 max-w-3xl w-full">
-        <h2 className="text-2xl font-semibold mb-4">{t("Products.update")}</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t("Products.product")}</h2>
         <div className="mb-4">
           <label htmlFor="title" className="block font-medium">
-            {t("Products.title")}:
+            {t("Products.title")}: *
           </label>
           {renderInputByKey({ type: "text", name: "title" })}
         </div>
         <div className="mb-4">
           <label htmlFor="description" className="block font-medium">
-            {t("Products.description")}:
+            {t("Products.description")}: *
           </label>
           {renderInputByKey({ type: "text", name: "description" })}
         </div>
         <div className="mb-4">
           <label htmlFor="price" className="block font-medium">
-            {t("Products.price")}:
+            {t("Products.price")}: *
           </label>
           {renderInputByKey({ type: "number", name: "price" })}
         </div>
         <div className="mb-4">
           <label htmlFor="price" className="block font-medium">
-            {t("Categories.category")}:
+            {t("Categories.category")}: *
           </label>
           {renderCategorySelect()}
         </div>
+        {warning && (
+          <div className="mb-4">
+            <p>{t("Warnings.canNotBeBlank")}</p>
+          </div>
+        )}
         <div className="flex justify-end">
           <button
             onClick={handleSaveChanges}
@@ -125,4 +164,4 @@ const EditModal = ({ product, setEditModalOpen }) => {
   );
 };
 
-export default EditModal;
+export default AddOrEditModal;

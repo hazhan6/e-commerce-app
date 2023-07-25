@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories, getProducts } from "../redux/products";
 import ProductCard from "./productCard";
 import { useTranslation } from "react-i18next";
+import AddOrEditModal from "./addOrEditModal";
 
 const ProductsSection = ({ isCategoryPage, category }) => {
   const { t } = useTranslation();
@@ -18,6 +19,8 @@ const ProductsSection = ({ isCategoryPage, category }) => {
   const [selectedCategory, setSelectedCategory] = useState(
     category ? category : ""
   );
+
+  const [isAddProductModalOpen, setAddProductModalOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getProducts({ sortOption, selectedCategory }));
@@ -129,9 +132,17 @@ const ProductsSection = ({ isCategoryPage, category }) => {
       </div>
 
       <div className="w-full md:w-4/5 mr-12 border border-gray-400 rounded-lg p-2">
-        <p className="mb-4 font-semibold text-4xl text-center dark:text-gray-200 ">
-          {category ? t(category).toUpperCase() : t("Products.products")}
-        </p>
+        <div className="flex justify-between">
+          <p className="mb-4 px-6 font-semibold text-4xl text-center dark:text-gray-200 ">
+            {category ? t(category).toUpperCase() : t("Products.products")}
+          </p>
+          <button
+            onClick={() => setAddProductModalOpen(true)}
+            className="flex items-center px-6 rounded-md text-gray-100 bg-gray-600 hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-900"
+          >
+            <p>{t("Products.add")} </p>
+          </button>
+        </div>
         <div className="grid md:grid-cols-3 grid-cols-2 gap-0 md:gap-4">
           {currentProducts &&
             currentProducts.map((product) => (
@@ -140,6 +151,9 @@ const ProductsSection = ({ isCategoryPage, category }) => {
         </div>
         {renderPagination()}
       </div>
+      {isAddProductModalOpen && (
+        <AddOrEditModal setModalOpen={setAddProductModalOpen} />
+      )}
     </div>
   );
 };
