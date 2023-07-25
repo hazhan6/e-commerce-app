@@ -8,6 +8,22 @@ const initialState = {
   limitedProducts: [],
 };
 
+const handleDelete = ({ state, action, stateKey }) => {
+  return (state[stateKey] = state[stateKey].map((item) => {
+    if (item.id === action.payload.id) {
+      return action.payload;
+    } else {
+      return item;
+    }
+  }));
+};
+
+const handleUpdate = ({ state, action, stateKey }) => {
+  return (state[stateKey] = state[stateKey].filter(
+    (item) => item.id != action.payload.id
+  ));
+};
+
 const fetchData = async (url) => {
   try {
     const response = await axios.get(url, {
@@ -67,6 +83,51 @@ export const getLimitedProducts = createAsyncThunk(
   }
 );
 
+export const deleteProduct = createAsyncThunk(
+  "deleteProduct",
+  async ({ productId }) => {
+    try {
+      const response = await axios.delete(
+        `https://fakestoreapi.com/products/${productId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+);
+
+export const updateProduct = createAsyncThunk(
+  "updateProduct",
+  async ({ editedData }) => {
+    try {
+      const response = await axios.put(
+        `https://fakestoreapi.com/products/${editedData.id}`,
+        {
+          title: editedData.title,
+          price: editedData.price,
+          description: editedData.description,
+          image: "https://i.pravatar.cc",
+          category: editedData.category,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+);
+
 const products = createSlice({
   name: "products",
   initialState,
@@ -84,6 +145,14 @@ const products = createSlice({
       })
       .addCase(getLimitedProducts.fulfilled, (state, action) => {
         state.limitedProducts = action.payload;
+      })
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        handleUpdate({ state, action, stateKey: "limitedProducts" });
+        handleUpdate({ state, action, stateKey: "products" });
+      })
+      .addCase(updateProduct.fulfilled, (state, action) => {
+        handleDelete({ state, action, stateKey: "limitedProducts" });
+        handleDelete({ state, action, stateKey: "products" });
       });
   },
 });

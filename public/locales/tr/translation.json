@@ -73,7 +73,12 @@
     "product": "Ürün",
     "products": "Ürünler",
     "productss": "Ürün(ler)",
-    "reviews": "Değerlendirme"
+    "reviews": "Değerlendirme",
+    "title": "Başlık",
+    "description": "Açıklama",
+    "price": "Fiyat",
+    "image": "Fotoğraf",
+    "update": "Ürün Güncelleme"
   },
 
   "Profile": {
@@ -95,6 +100,8 @@
     "updateCartFail": "Sepet güncellenirken bir hata oluştu.",
     "deleteProductSuccess": "Ürün başarıyla silindi.",
     "deleteProductFail": "Ürün silinirken bir hata oluştu.",
+    "updatedProductSuccess": "Ürün başarıyla güncellendi.",
+    "updatedProductFail": "Ürün güncellenirken bir hata oluştu.",
     "clearCartSuccess": "Sepet başarıyla temizlendi.",
     "clearCartFail": "Sepet temizlenirken bir hata oluştu.",
     "orderTakenSuccess": "Sipariş başarıyla alındı",
@@ -105,10 +112,13 @@
     "loginFail": "Kullanıcı adı ya da şifre hatalı.",
 
     "sureForLogout": "Çıkış yapmak istediğinizden emin misiniz?",
+    "sureForDelete": "Silmek istediğinizden emin misiniz?",
     "sureForClear": "Sepeti temizlemek istediğinizden emin misiniz?",
     "sure": "Evet, eminim",
     "continue": "Devam et",
     "cancel": "İptal",
+    "delete": "Sil",
+    "save": "Kaydet",
     "authenticationForCheckout": "Ödeme yapmak için giriş yapınız!",
 
     "dontHaveAccount": "Hesabınız yok mu? Kayıt olun",

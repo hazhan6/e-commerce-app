@@ -1,16 +1,36 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import { addProductToCart } from "../redux/cart";
 import { useSnackbar } from "notistack";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
+import EditAndDeleteProduct from "./editAndDeleteProduct";
+import EditModal from "./editModal";
 
 const ProductCard = ({ product }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
   const [quantity, setQuantity] = useState(1);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
+
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleDropdownOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleDropdownOutsideClick);
+    };
+  }, []);
+
+  const handleDropdownOutsideClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -100,10 +120,36 @@ const ProductCard = ({ product }) => {
     );
   };
 
+  const handleDropdownToggle = () => {
+    setDropdownOpen((prev) => !prev);
+  };
+
+  const renderActions = () => {
+    return (
+      <div className="absolute top-0 right-5 z-10 text-black">
+        <button className="text-2xl" onClick={handleDropdownToggle}>
+          ...
+        </button>
+        {isDropdownOpen && (
+          <div ref={dropdownRef}>
+            <EditAndDeleteProduct
+              productId={product.id}
+              setEditModalOpen={setEditModalOpen}
+            />
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
-    <div className="flex flex-col items-center justify-between dark:bg-gray-300 m-1 md:m-5 py-6 text-center shadow-md hover:shadow-2xl dark:hover:shadow-slate-500 border hover:border-gray-600 dark:border-gray-600 hover:dark:border-gray-500 rounded-md">
+    <div className="flex flex-col relative items-center justify-between dark:bg-gray-300 m-1 md:m-5 py-6 text-center shadow-md hover:shadow-2xl dark:hover:shadow-slate-500 border hover:border-gray-600 dark:border-gray-600 hover:dark:border-gray-500 rounded-md">
       {renderProductDetails()}
       {renderAddToCart()}
+      {renderActions()}
+      {isEditModalOpen && (
+        <EditModal product={product} setEditModalOpen={setEditModalOpen} />
+      )}
     </div>
   );
 };

@@ -15,7 +15,9 @@ const ProductsSection = ({ isCategoryPage, category }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [sortOption, setSortOption] = useState("default");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(
+    category ? category : ""
+  );
 
   useEffect(() => {
     dispatch(getProducts({ sortOption, selectedCategory }));

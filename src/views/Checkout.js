@@ -214,14 +214,14 @@ const Checkout = () => {
     if (result.value !== null && result.value === true) {
       try {
         // payment
-        enqueueSnackbar(`${t("Checkout.orderTakenSuccess")}`, {
+        enqueueSnackbar(`${t("Warnings.orderTakenSuccess")}`, {
           variant: "success",
           preventDuplicate: true,
         });
         localStorage.removeItem("cart");
         navigate(`/`);
       } catch (error) {
-        enqueueSnackbar(`${t("Checkout.orderTakenFail")}`, {
+        enqueueSnackbar(`${t("Warnings.orderTakenFail")}`, {
           variant: "error",
           preventDuplicate: true,
         });

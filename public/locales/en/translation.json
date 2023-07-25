@@ -73,7 +73,12 @@
     "product": "Product",
     "products": "Products",
     "productss": "Product(s)",
-    "reviews": "Reviews"
+    "reviews": "Reviews",
+    "title": "Title",
+    "description": "Description",
+    "price": "Price",
+    "image": "Image",
+    "update": "Product Edit"
   },
 
   "Profile": {
@@ -95,6 +100,8 @@
     "updateCartFail": "An error occurred while updating the cart.",
     "deleteProductSuccess": "Product successfully deleted.",
     "deleteProductFail": "An error occurred while deleting the product.",
+    "updatedProductSuccess": "Product successfully updated.",
+    "updatedProductFail": "An error occurred while updating the product.",
     "clearCartSuccess": "Cart successfully cleared.",
     "clearCartFail": "An error occurred while clearing the cart.",
     "orderTakenSuccess": "Order successfully taken.",
@@ -105,10 +112,13 @@
     "loginFail": "Username or password is incorrect.",
 
     "sureForLogout": "Are you sure you want to logout?",
+    "sureForDelete": "Are you sure you want to delete?",
     "sureForClear": "Are you sure you want to clear the cart?",
     "sure": "Yes, I'm sure.",
     "continue": "Continue",
     "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save",
     "authenticationForCheckout": "Please login to proceed with the payment.",
 
     "dontHaveAccount": "Don't have a account? Sign Up",

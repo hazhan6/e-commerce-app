@@ -49,6 +49,7 @@ const Signup = () => {
   };
 
   const handleCityChange = (event) => {
+    // get geoLocation
     //const cityValue = event.target.value;
   };
 
