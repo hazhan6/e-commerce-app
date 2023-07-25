@@ -4,25 +4,25 @@ This is an E-Commerce application that allows users to browse and purchase produ
 
 ## Features
 
-- User Authentication: Users can login to the application using their credentials.
+-  **User Authentication:** Users can login to the application using their credentials.
 
-- Product Listing: Users can browse products based on different categories such as electronics, men's clothing, women's clothing, jewelry, etc.
+- **Product Listing:** Users can browse products based on different categories such as electronics, men's clothing, women's clothing, jewelry, etc.
 
-- Product Details: Users can view detailed information about each product, including images, descriptions, and prices.
+- **Product Details:** Users can view detailed information about each product, including images, descriptions, and prices.
 
-- Product Management:
+- **Product Management:**
 
-  - Add Product: Users can add new products to the store, including title, description, category and price.
-  - Update Product: Users can edit existing products' information, such as title, description, category and price.
-  - Remove Product: Users can delete products from the store.
+  - **Add Product:** Users can add new products to the store, including title, description, category and price.
+  - **Update Product:** Users can edit existing products' information, such as title, description, category and price.
+  - **Remove Product:** Users can delete products from the store.
 
-- Shopping Cart: Users can add and remove products to/from their shopping cart. The cart allows users to update the quantity of items and clear the cart entirely.
+- **Shopping Cart:** Users can add and remove products to/from their shopping cart. The cart allows users to update the quantity of items and clear the cart entirely.
 
-- Checkout: Users can proceed to the checkout page to finalize their order. They can view and edit delivery information and enter their credit card details for payment.
+- **Checkout:** Users can proceed to the checkout page to finalize their order. They can view and edit delivery information and enter their credit card details for payment.
 
-- Data Persistency: The application uses Redux and LocalStorage for data persistency, so user cart and login status will be retained even after refreshing the page.
+- **Data Persistency:** The application uses Redux and LocalStorage for data persistency, so user cart and login status will be retained even after refreshing the page.
 
-- Responsive Design: The app is designed to be responsive, providing a seamless experience across various devices.
+- **Responsive Design:** The app is designed to be responsive, providing a seamless experience across various devices.
 
 ## Requirements
 
