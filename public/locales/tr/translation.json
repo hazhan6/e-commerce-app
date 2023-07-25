@@ -1,0 +1,124 @@
+{
+  "all": "Tümü",
+  "allCategory": "Tüm Kategoriler",
+  "asc": "Eskiden Yeniye",
+  "desc": "Yeniden Eskiye",
+  "default": "Önerilen",
+  "filterByCategory": "Kategoriye Göre",
+  "footer": "Tüm hakları saklıdır.",
+  "show": "Göster",
+  "sortBy": "Sırala",
+
+  "electronics": "Elektronik",
+  "jewelery": "Aksesuar",
+  "men's clothing": "Erkek Giyim",
+  "women's clothing": "kadın Giyim",
+
+  "Cart": {
+    "addToCart": "Sepete Ekle",
+    "emptyCart": "Sepetiniz Boş",
+    "emptyCartDesc": "Sepetinizi doldurmak için aşağıdaki ürünleri incelemeye başlayabilirsiniz.",
+    "or": "veya",
+    "cart": "Sepet",
+    "myCart": "Sepetim",
+    "clearCart": "Sepeti Temizle",
+    "totalAmount": "Toplam Tutar",
+    "checkout": "Sepeti Onayla"
+  },
+
+  "Categories": {
+    "category": "Kategori"
+  },
+
+  "Checkout": {
+    "address": "Adres",
+    "agreementContent": "Mesafeli Satış Sözleşmesi",
+    "cardInformation": "Kart Bilgileri",
+    "cartNumber": "Kart Numarası",
+    "cartTotal": "Ürün Toplamı",
+    "completeOrder": "Siparişi Tamamla",
+    "confirmOrder": "Siparişi Onayla",
+    "confirmOrderDesc": "Devam ettiğinde ödemen banka/kredi kartı ile tamamlanacaktır.",
+    "contractApprove": "Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.",
+    "deliveryAddress": "Teslimat Adresi",
+    "deliveryOptions": "Teslimat Seçenekleri",
+    "estimatedDeliveryDate": "Tahmini teslim tarihi",
+    "expiry": "Son Kullanma Tarihi",
+    "formContent": "Ön Bilgilendirme Formu",
+    "name": "Kart Sahibi",
+    "shippingPrice": "Kargo Ücreti",
+    "standardDelivery": "Standart Teslimat",
+    "to": "Kime",
+    "zipcode": "Posta Kodu"
+  },
+
+  "Header": {
+    "profile": "Profilim",
+    "language": "Dil",
+    "login": "Giriş Yap",
+    "logout": "Çıkış",
+    "signup": "Kayıt Ol",
+    "theme": "Tema",
+    "lightMode": "Gündüz Modu",
+    "darkMode": "Gece Modu"
+  },
+
+  "Links": {
+    "goToHome": "Ana Sayfaya Git",
+    "goToLogin": "Giriş Yap",
+    "redirectToCheckout": "Ödeme Sayfasına Yönlendiriliyor"
+  },
+
+  "Products": {
+    "product": "Ürün",
+    "products": "Ürünler",
+    "productss": "Ürün(ler)",
+    "reviews": "Değerlendirme"
+  },
+
+  "Profile": {
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "city": "Şehir",
+    "street": "Cadde",
+    "number": "Numara",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "passwordRepeat": "Şifre Tekrarı",
+    "phoneNumber": "Telefon Numarası"
+  },
+
+  "Warnings": {
+    "addToCartSuccess": "Ürün başarıyla sepete eklendi.",
+    "addToCartFail": "Ürün sepete eklenirken bir hata oluştu.",
+    "updateCartSuccess": "Sepet başarıyla güncellendi.",
+    "updateCartFail": "Sepet güncellenirken bir hata oluştu.",
+    "deleteProductSuccess": "Ürün başarıyla silindi.",
+    "deleteProductFail": "Ürün silinirken bir hata oluştu.",
+    "clearCartSuccess": "Sepet başarıyla temizlendi.",
+    "clearCartFail": "Sepet temizlenirken bir hata oluştu.",
+    "orderTakenSuccess": "Sipariş başarıyla alındı",
+    "orderTakenFail": "Sipariş alınırken bir hata oluştu.",
+    "logoutSuccess": "Çıkış yaptınız, yönlendiriliyorsunuz..",
+    "logoutFail": "Çıkış yaparken bir hata oluştu.",
+    "loginSuccess": "Giriş yaptınız, yönlendiriliyorsunuz..",
+    "loginFail": "Kullanıcı adı ya da şifre hatalı.",
+
+    "sureForLogout": "Çıkış yapmak istediğinizden emin misiniz?",
+    "sureForClear": "Sepeti temizlemek istediğinizden emin misiniz?",
+    "sure": "Evet, eminim",
+    "continue": "Devam et",
+    "cancel": "İptal",
+    "authenticationForCheckout": "Ödeme yapmak için giriş yapınız!",
+
+    "dontHaveAccount": "Hesabınız yok mu? Kayıt olun",
+    "haveAccount": "Hesabınız var mı? Giriş Yapın",
+
+    "unmatchPassword": "Şifreler aynı değil!",
+
+    "cartNameRequired": "Kart Sahibi boş bırakılamaz",
+    "CVCRequired": "Geçersiz CVC",
+    "expiryRequired": "Geçersiz son kullanma tarihi",
+    "cartNumberRequired": "Geçersiz kart numarası"
+  }
+}

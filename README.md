@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# E-Commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an E-Commerce application that allows users to browse and purchase products from various categories. It is built using React, Redux Toolkit, Tailwind CSS, and utilizes the Fake Store API for product data.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User Authentication: Users can login to the application using their credentials.
 
-### `npm start`
+- Product Listing: Users can browse products based on different categories such as electronics, men's clothing, women's clothing, jewelry, etc.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Product Details: Users can view detailed information about each product, including images, descriptions, and prices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Shopping Cart: Users can add and remove products to/from their shopping cart. The cart allows users to update the quantity of items and clear the cart entirely.
 
-### `npm test`
+- Checkout: Users can proceed to the checkout page to finalize their order. They can view and edit delivery information and enter their credit card details for payment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Data Persistency: The application uses Redux and LocalStorage for data persistency, so user cart and login status will be retained even after refreshing the page.
 
-### `npm run build`
+- Responsive Design: The app is designed to be responsive, providing a seamless experience across various devices.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React (version 16 or above)
+- Node.js (version 10 or above)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+Clone this repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/hazhan6/e-commerce-app.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Go to the directory:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd e-commerce-app
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Install the dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm install
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Start the development server:
 
-### Analyzing the Bundle Size
+```bash
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
-### Making a Progressive Web App
+Go to http://localhost:3000 in your browser and start using the E-Commerce application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Screenshots
 
-### Advanced Configuration
+Here are some screenshots of the E-Commerce App:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](./public/images/electronics.png)

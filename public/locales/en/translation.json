@@ -1,0 +1,124 @@
+{
+  "all": "All",
+  "allCategory": "All Category",
+  "asc": "Oldest to Newest",
+  "desc": "Newest to Oldest",
+  "default": "Default",
+  "filterByCategory": "Filter By Category",
+  "footer": "All rights reserved.",
+  "show": "Show",
+  "sortBy": "Sort By",
+
+  "electronics": "electronics",
+  "jewelery": "jewelery",
+  "men's clothing": "men's clothing",
+  "women's clothing": "women's clothing",
+
+  "Cart": {
+    "addToCart": "Add to Cart",
+    "emptyCart": "Your Cart is Empty",
+    "emptyCartDesc": "You can start exploring the following products to fill your cart.",
+    "or": "or",
+    "cart": "Cart",
+    "myCart": "My Cart",
+    "clearCart": "Clear Cart",
+    "totalAmount": "Total Amount",
+    "checkout": "Confirm the Cart"
+  },
+
+  "Categories": {
+    "category": "Category"
+  },
+
+  "Checkout": {
+    "address": "Address",
+    "agreementContent": "Distance Sales Agreement",
+    "cardInformation": "Card Information",
+    "cartNumber": "Card Number",
+    "cartTotal": "Cart Total",
+    "completeOrder": "Complete Order",
+    "confirmOrder": "Confirm Order",
+    "confirmOrderDesc": "By continuing, the payment will be completed with your bank/credit card.",
+    "contractApprove": "I approve the Pre-information Form and Distance Sales Agreement.",
+    "deliveryAddress": "Delivery Address",
+    "deliveryOptions": "Delivery Options",
+    "estimatedDeliveryDate": "Estimated Delivery Date",
+    "expiry": "Expiry Date",
+    "formContent": "Pre-information Form",
+    "name": "Cardholder Name",
+    "shippingPrice": "Shipping Price",
+    "standardDelivery": "Standard Delivery",
+    "to": "To",
+    "zipcode": "Zip Code"
+  },
+
+  "Header": {
+    "profile": "Profile",
+    "language": "Language",
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign Up",
+    "theme": "Theme",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+
+  "Links": {
+    "goToHome": "Go To Home",
+    "goToLogin": "Go To Login",
+    "redirectToCheckout": "Redirecting to Checkout Page"
+  },
+
+  "Products": {
+    "product": "Product",
+    "products": "Products",
+    "productss": "Product(s)",
+    "reviews": "Reviews"
+  },
+
+  "Profile": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "city": "City",
+    "street": "Street",
+    "number": "Number",
+    "username": "Username",
+    "password": "Password",
+    "passwordRepeat": "Password Repeat",
+    "phoneNumber": "Phone Number"
+  },
+
+  "Warnings": {
+    "addToCartSuccess": "Product successfully added to cart.",
+    "addToCartFail": "An error occurred while adding to cart.",
+    "updateCartSuccess": "Cart successfully updated.",
+    "updateCartFail": "An error occurred while updating the cart.",
+    "deleteProductSuccess": "Product successfully deleted.",
+    "deleteProductFail": "An error occurred while deleting the product.",
+    "clearCartSuccess": "Cart successfully cleared.",
+    "clearCartFail": "An error occurred while clearing the cart.",
+    "orderTakenSuccess": "Order successfully taken.",
+    "orderTakenFail": "An error occurred while taking the order.",
+    "logoutSuccess": "You have been logged out and will be redirected..",
+    "logoutFail": "An error occurred while logout.",
+    "loginSuccess": "Successfully logged. You are being redirected..",
+    "loginFail": "Username or password is incorrect.",
+
+    "sureForLogout": "Are you sure you want to logout?",
+    "sureForClear": "Are you sure you want to clear the cart?",
+    "sure": "Yes, I'm sure.",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "authenticationForCheckout": "Please login to proceed with the payment.",
+
+    "dontHaveAccount": "Don't have a account? Sign Up",
+    "haveAccount": "Already have a account? Login",
+
+    "unmatchPassword": "Passwords don't match!",
+
+    "cartNameRequired": "Cardholder Name cannot be empty.",
+    "CVCRequired": "Invalid CVC.",
+    "expiryRequired": "Invalid expiry date.",
+    "cartNumberRequired": "Invalid card number."
+  }
+}
