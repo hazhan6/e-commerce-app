@@ -2,7 +2,7 @@
 
 This is an E-Commerce application that allows users to browse and purchase products from various categories. It is built using React, Redux Toolkit, Tailwind CSS, and utilizes the Fake Store API for product data.
 
-[For Demo]([https://react-blog-hh.netlify.app/](https://hazal-hangul-e-commerce-app.netlify.app/) "myApp")
+[For Demo](https://hazal-hangul-e-commerce-app.netlify.app)
 
 ## Features
 
