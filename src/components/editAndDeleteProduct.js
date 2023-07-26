@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import withReactContent from "sweetalert2-react-content";

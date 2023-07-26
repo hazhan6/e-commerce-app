@@ -9,7 +9,6 @@ import { logout } from "../redux/auth";
 import { useSnackbar } from "notistack";
 import withReactContent from "sweetalert2-react-content";
 import { default as SweetAlert } from "sweetalert2";
-import { saveToLocalStorage } from "../utils";
 
 const Swal = withReactContent(SweetAlert);
 

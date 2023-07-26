@@ -217,7 +217,6 @@ const Cart = () => {
       navigate(`/checkout`);
     } else {
       const result = await Swal.fire({
-        title: `Warning`,
         text: `${t("Warnings.authenticationForCheckout")}`,
         icon: "warning",
         showCancelButton: true,

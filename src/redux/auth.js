@@ -37,19 +37,6 @@ export const login = createAsyncThunk(
   }
 );
 
-export const signUp = createAsyncThunk("signUp", async () => {
-  try {
-    const response = await axios.get("https://fakestoreapi.com/auth/login", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.log("error", error);
-  }
-});
-
 const auth = createSlice({
   name: "auth",
   initialState,

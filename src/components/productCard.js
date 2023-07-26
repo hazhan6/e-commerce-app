@@ -61,7 +61,7 @@ const ProductCard = ({ product }) => {
         <div className="w-full h-40 mb-5 hover:p-3 p-5">
           <img
             src={product.image}
-            alt={`Ürün ${product.id}`}
+            alt={`Product ${product.id}`}
             className="object-contain w-full h-full mix-blend-multiply"
           />
         </div>
