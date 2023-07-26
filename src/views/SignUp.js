@@ -28,9 +28,8 @@ const Signup = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
     if (name === "phone" || name === "zipcode") {
-      const numericInputRegex = /^[0-9\b]+$/;
+      const numericInputRegex = /^[0-9-\b]+$/;
       if (!value || numericInputRegex.test(value)) {
         handleSetData({ name, value });
       }
@@ -53,6 +52,20 @@ const Signup = () => {
     //const cityValue = event.target.value;
   };
 
+  const renderInputByKey = ({ type, name }) => {
+    return (
+      <input
+        id={name}
+        type={type}
+        name={name}
+        required
+        value={formData[name]}
+        onChange={handleInputChange}
+        className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
+      />
+    );
+  };
+
   return (
     <div className="min-h-screen flex items-center my-32 justify-center">
       <div className="p-8 rounded shadow-custom shadow-gray-500 w-full md:w-1/2">
@@ -66,29 +79,13 @@ const Signup = () => {
               <label htmlFor="email" className="block font-medium mb-1">
                 Email:
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-              />
+              {renderInputByKey({ type: "email", name: "email" })}
             </div>
             <div className="w-full md:w-1/2 md:pl-2">
               <label htmlFor="username" className="block font-medium mb-1">
                 {t("Profile.username")}:
               </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-              />
+              {renderInputByKey({ type: "text", name: "username" })}
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -96,15 +93,7 @@ const Signup = () => {
               <label htmlFor="password" className="block font-medium mb-1">
                 {t("Profile.password")}:
               </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-              />
+              {renderInputByKey({ type: "password", name: "password" })}
             </div>
             <div className="w-full md:w-1/2 md:pl-2">
               <label
@@ -113,15 +102,7 @@ const Signup = () => {
               >
                 {t("Profile.passwordRepeat")}:
               </label>
-              <input
-                type="password"
-                id="repeatPassword"
-                name="repeatPassword"
-                value={formData.repeatPassword}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-              />
+              {renderInputByKey({ type: "password", name: "repeatPassword" })}
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -129,29 +110,13 @@ const Signup = () => {
               <label htmlFor="firstName" className="block font-medium mb-1">
                 {t("Profile.firstName")}:
               </label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstname"
-                value={formData.firstname}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-              />
+              {renderInputByKey({ type: "text", name: "firstname" })}
             </div>
             <div className="w-full md:w-1/2 md:pl-2">
               <label htmlFor="lastName" className="block font-medium mb-1">
                 {t("Profile.lastName")}:
               </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastname"
-                value={formData.lastname}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-              />
+              {renderInputByKey({ type: "text", name: "lastName" })}
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -159,17 +124,7 @@ const Signup = () => {
               <label htmlFor="phone" className="block font-medium mb-1">
                 {t("Profile.phoneNumber")}:
               </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                required
-                inputMode="numeric"
-                pattern="[0-9]*"
-              />
+              {renderInputByKey({ type: "tel", name: "phone" })}
             </div>
           </div>
           <div>
@@ -182,32 +137,13 @@ const Signup = () => {
                   <label htmlFor="city" className="block font-medium mb-1">
                     {t("Profile.city")}:
                   </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={formData.city}
-                    onChange={(e) => {
-                      handleInputChange(e);
-                      handleCityChange(e);
-                    }}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                    required
-                  />
+                  {renderInputByKey({ type: "text", name: "city" })}
                 </div>
                 <div className="w-full md:w-1/2 md:pl-2">
                   <label htmlFor="street" className="block font-medium mb-1">
                     {t("Profile.street")}:
                   </label>
-                  <input
-                    type="text"
-                    id="street"
-                    name="street"
-                    value={formData.street}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                    required
-                  />
+                  {renderInputByKey({ type: "text", name: "street" })}
                 </div>
               </div>
               <div className="flex flex-wrap mb-4">
@@ -215,31 +151,13 @@ const Signup = () => {
                   <label htmlFor="number" className="block font-medium mb-1">
                     {t("Profile.number")}:
                   </label>
-                  <input
-                    type="text"
-                    id="number"
-                    name="number"
-                    value={formData.number}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                    required
-                  />
+                  {renderInputByKey({ type: "text", name: "number" })}
                 </div>
                 <div className="w-full md:w-1/2 md:pl-2">
                   <label htmlFor="zipcode" className="block font-medium mb-1">
                     {t("Checkout.zipcode")}:
                   </label>
-                  <input
-                    type="text"
-                    id="zipcode"
-                    name="zipcode"
-                    value={formData.zipcode}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500"
-                    required
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                  />
+                  {renderInputByKey({ type: "text", name: "zipcode" })}
                 </div>
               </div>
             </div>

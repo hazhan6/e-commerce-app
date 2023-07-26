@@ -24,44 +24,54 @@ const Profile = () => {
     return <Loading />;
   }
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
+  const handleSetInsideInput = ({ name, value, upName }) => {
+    return setUserDetails({
+      ...userDetails,
+      [upName]: {
+        ...userDetails[upName],
+        [name]: value,
+      },
+    });
+  };
 
-    if (name === "phone" || name === "zipcode") {
-      const numericInputRegex = /^[0-9\b]+$/;
+  const handleSetInput = ({ name, value }) => {
+    return setUserDetails({
+      ...userDetails,
+      [name]: value,
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "phone" || name === "zipcode" || name === "number") {
+      const numericInputRegex = /^[0-9-\b]+$/;
       if (!value || numericInputRegex.test(value)) {
-        setUserDetails({
-          ...userDetails,
-          [name]: value,
-        });
+        name === "phone"
+          ? handleSetInput({ name, value })
+          : handleSetInsideInput({ name, value, upName: "address" });
       }
     } else if (name === "firstname" || name === "lastname") {
-      setUserDetails({
-        ...userDetails,
-        name: {
-          ...userDetails.name,
-          [name]: value,
-        },
-      });
-    } else if (
-      name === "city" ||
-      name === "street" ||
-      name === "number" ||
-      name === "zipcode"
-    ) {
-      setUserDetails({
-        ...userDetails,
-        name: {
-          ...userDetails.address,
-          [name]: value,
-        },
-      });
+      handleSetInsideInput({ name, value, upName: "name" });
+    } else if (name === "city" || name === "street") {
+      handleSetInsideInput({ name, value, upName: "address" });
     } else {
-      setUserDetails({
-        ...userDetails,
-        [name]: value,
-      });
+      handleSetInput({ name, value });
     }
+  };
+
+  const renderInputByKey = ({ type, name, upName }) => {
+    return (
+      <input
+        id={name}
+        type={type}
+        name={name}
+        required
+        value={upName ? userDetails[upName][name] : userDetails[name]}
+        onChange={handleInputChange}
+        className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
+      />
+    );
   };
 
   const handleCityChange = (event) => {
@@ -80,29 +90,13 @@ const Profile = () => {
               <label htmlFor="email" className="block font-medium mb-1">
                 Email:
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={userDetails.email}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                required
-              />
+              {renderInputByKey({ type: "email", name: "email" })}
             </div>
             <div className="w-full md:w-1/2 md:pl-2">
               <label htmlFor="username" className="block font-medium mb-1">
                 {t("Profile.username")}:
               </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={userDetails.username}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                required
-              />
+              {renderInputByKey({ type: "text", name: "username" })}
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -110,61 +104,35 @@ const Profile = () => {
               <label htmlFor="phone" className="block font-medium mb-1">
                 {t("Profile.phoneNumber")}:
               </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={userDetails.phone}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                required
-                inputMode="numeric"
-                pattern="[0-9]*"
-              />
+              {renderInputByKey({ type: "tel", name: "phone" })}
             </div>
             <div className="w-full md:w-1/2 md:pl-2 mb-4">
               <label htmlFor="password" className="block font-medium mb-1">
                 {t("Profile.password")}:
               </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={userDetails.password}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                required
-              />
+              {renderInputByKey({ type: "password", name: "password" })}
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
             <div className="w-full md:w-1/2 md:pr-2 mb-4">
-              <label htmlFor="firstName" className="block font-medium mb-1">
+              <label htmlFor="firstname" className="block font-medium mb-1">
                 {t("Profile.firstName")}:
               </label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstname"
-                value={userDetails.name.firstname}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                required
-              />
+              {renderInputByKey({
+                type: "text",
+                name: "firstname",
+                upName: "name",
+              })}
             </div>
             <div className="w-full md:w-1/2 md:pl-2">
-              <label htmlFor="lastName" className="block font-medium mb-1">
+              <label htmlFor="lastname" className="block font-medium mb-1">
                 {t("Profile.lastName")}:
               </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastname"
-                value={userDetails.name.lastname}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                required
-              />
+              {renderInputByKey({
+                type: "text",
+                name: "lastname",
+                upName: "name",
+              })}
             </div>
           </div>
           <div>
@@ -177,32 +145,21 @@ const Profile = () => {
                   <label htmlFor="city" className="block font-medium mb-1">
                     {t("Profile.city")}:
                   </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={userDetails.address.city}
-                    onChange={(e) => {
-                      handleInputChange(e);
-                      handleCityChange(e);
-                    }}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                    required
-                  />
+                  {renderInputByKey({
+                    type: "text",
+                    name: "city",
+                    upName: "address",
+                  })}
                 </div>
                 <div className="w-full md:w-1/2 md:pl-2">
                   <label htmlFor="street" className="block font-medium mb-1">
                     {t("Profile.street")}:
                   </label>
-                  <input
-                    type="text"
-                    id="street"
-                    name="street"
-                    value={userDetails.address.street}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                    required
-                  />
+                  {renderInputByKey({
+                    type: "text",
+                    name: "street",
+                    upName: "address",
+                  })}
                 </div>
               </div>
               <div className="flex flex-wrap mb-4">
@@ -210,31 +167,21 @@ const Profile = () => {
                   <label htmlFor="number" className="block font-medium mb-1">
                     {t("Profile.number")}:
                   </label>
-                  <input
-                    type="text"
-                    id="number"
-                    name="number"
-                    value={userDetails.address.number}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                    required
-                  />
+                  {renderInputByKey({
+                    type: "text",
+                    name: "number",
+                    upName: "address",
+                  })}
                 </div>
                 <div className="w-full md:w-1/2 md:pl-2">
                   <label htmlFor="zipcode" className="block font-medium mb-1">
                     {t("Checkout.zipcode")}:
                   </label>
-                  <input
-                    type="text"
-                    id="zipcode"
-                    name="zipcode"
-                    value={userDetails.address.zipcode}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded text-gray-800 outline-gray-500 bg-gray-200"
-                    required
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                  />
+                  {renderInputByKey({
+                    type: "text",
+                    name: "zipcode",
+                    upName: "address",
+                  })}
                 </div>
               </div>
               {/* <div className="flex flex-wrap justify-end">
