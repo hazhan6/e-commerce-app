@@ -9,6 +9,7 @@ import withReactContent from "sweetalert2-react-content";
 import { default as SweetAlert } from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../redux/cart";
 
 const Swal = withReactContent(SweetAlert);
 
@@ -213,12 +214,11 @@ const Checkout = () => {
     });
     if (result.value !== null && result.value === true) {
       try {
-        // payment
+        dispatch(clearCart());
         enqueueSnackbar(`${t("Warnings.orderTakenSuccess")}`, {
           variant: "success",
           preventDuplicate: true,
         });
-        localStorage.removeItem("cart");
         navigate(`/`);
       } catch (error) {
         enqueueSnackbar(`${t("Warnings.orderTakenFail")}`, {
