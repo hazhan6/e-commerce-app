@@ -3,11 +3,13 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, getCategories, updateProduct } from "../redux/products";
 import { useSnackbar } from "notistack";
+import { useParams } from "react-router-dom";
 
 const AddOrEditModal = ({ product, setModalOpen }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
+  const { selectedCategory } = useParams();
 
   const categories = useSelector((state) => state.products.categories);
   const [inputData, setInputData] = useState(
@@ -17,7 +19,7 @@ const AddOrEditModal = ({ product, setModalOpen }) => {
           title: "",
           price: "",
           description: "",
-          category: "",
+          category: selectedCategory || "",
         }
   );
   const [warning, setWarning] = useState(false);
@@ -98,6 +100,7 @@ const AddOrEditModal = ({ product, setModalOpen }) => {
           value={inputData?.category}
           onChange={handleInputChange}
           className="p-2 outline-gray-500 dark:bg-gray-300 border rounded dark:text-gray-700"
+          disabled={selectedCategory ? true : false}
         >
           <option value={""}></option>
           {categories &&
@@ -115,7 +118,9 @@ const AddOrEditModal = ({ product, setModalOpen }) => {
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="bg-white dark:bg-gray-600 rounded-lg p-6 z-10 max-w-3xl w-full">
-        <h2 className="text-2xl font-semibold mb-4">{t("Products.product")}</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          {product ? t("Products.update") : t("Products.add")}
+        </h2>
         <div className="mb-4">
           <label htmlFor="title" className="block font-medium">
             {t("Products.title")}: *
