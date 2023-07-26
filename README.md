@@ -4,6 +4,9 @@ This is an E-Commerce application that allows users to browse and purchase produ
 
 [For Demo](https://hazal-hangul-e-commerce-app.netlify.app)
 
+##### username: mor_2314
+##### password: 83r5^_
+
 ## Features
 
 -  **User Authentication:** Users can login to the application using their credentials.
